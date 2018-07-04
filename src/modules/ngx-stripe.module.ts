@@ -21,10 +21,11 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/map';
+import {StripeIbanComponent} from "../components/stripe-iban.component";
 
 @NgModule({
-  declarations: [StripeCardComponent],
-  exports: [StripeCardComponent]
+  declarations: [StripeCardComponent, StripeIbanComponent],
+  exports: [StripeCardComponent, StripeIbanComponent]
 })
 export class NgxStripeModule {
   public static forRoot(
