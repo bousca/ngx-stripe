@@ -1,7 +1,11 @@
 // Public classes.
+import {StripeElementComponent} from "./components/stripe-element.component";
+
 export { NgxStripeModule } from './modules/ngx-stripe.module';
 
 export { StripeCardComponent } from './components/stripe-card.component';
+export { StripeIbanComponent } from './components/stripe-iban.component';
+export { StripeElementComponent } from './components/stripe-element.component';
 
 export { StripeService } from './services/stripe.service';
 export { StripeFactoryService } from './services/stripe-factory.service';

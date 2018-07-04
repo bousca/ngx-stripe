@@ -19,18 +19,18 @@ import {
 import { StripeService } from '../services/stripe.service';
 import { Elements, ElementsOptions } from '../interfaces/elements';
 import { StripeInstance } from '../services/stripe-instance.class';
+import {StripeElementComponent} from "./stripe-element.component";
 
 @Component({
     selector: 'ngx-stripe-iban',
     template: `<div class="field" #stripeIban></div>`
 })
-export class StripeIbanComponent implements OnInit {
+export class StripeIbanComponent extends StripeElementComponent implements OnInit {
     @Output() public iban = new EventEmitter<StripeElement>();
     @Output()
     public on = new EventEmitter<{ type: ElementEventType; event: any }>();
 
     @ViewChild('stripeIban') private stripeIban: ElementRef;
-    private element: StripeElement;
     @Input()
     private set options(optionsIn: ElementOptions) {
         this.options$.next(optionsIn);
@@ -47,7 +47,9 @@ export class StripeIbanComponent implements OnInit {
     }
     private stripe$ = new BehaviorSubject<StripeInstance | null>(null);
 
-    constructor(private stripeService: StripeService) {}
+    constructor(private stripeService: StripeService) {
+        super();
+    }
 
     public ngOnInit() {
         const elements$: Observable<Elements> = Observable.combineLatest(
@@ -111,9 +113,5 @@ export class StripeIbanComponent implements OnInit {
 
             this.iban.emit(this.element);
         });
-    }
-
-    public getIban(): StripeElement {
-        return this.element;
     }
 }

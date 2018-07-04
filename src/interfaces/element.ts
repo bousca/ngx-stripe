@@ -25,6 +25,8 @@ export interface ElementOptions {
     empty?: ElementStyleAttributes;
     invalid?: ElementStyleAttributes;
   };
+  supportedCountries?: string[];
+  placeholderCountry?: string;
   hidePostalCode?: boolean;
   hideIcon?: boolean;
   iconStyle?: 'solid' | 'default';
